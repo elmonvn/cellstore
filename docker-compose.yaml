@@ -1,0 +1,41 @@
+version: '3.7'
+
+services:
+    mongo:
+        image: mongo
+        container_name: cellstore-mongo
+        restart: always
+        networks:
+            - backend
+        ports:
+            - 27017:27017
+        volumes:
+            - ./cellstoredb/db:/data/db
+            - ./cellstoredb/configdb:/data/configdb
+
+    mongo-express:
+        image: mongo-express
+        container_name: cellstore-mongo-express
+        restart: always
+        networks:
+            - backend
+        ports:
+            - 8081:8081
+
+    tomcat:
+        image: tomcat
+        container_name: cellstore-tomcat
+        restart: always
+        networks:
+            - backend
+        ports:
+            - 8080:8080
+        volumes:
+                - ./cellstoreapi-0.0.1-SNAPSHOT.war:/usr/local/tomcat/webapps/cellstoreapi-0.0.1-SNAPSHOT.war
+
+networks:
+    backend:
+
+volumes:
+    db-data:
+

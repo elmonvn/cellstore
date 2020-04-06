@@ -1,0 +1,48 @@
+<div class="container wrapper wrapper2">
+  <div class="row">
+
+    <!-- Form -->
+    <div class="col-md-12">
+      <h1 style="margin: auto">Cell Store</h1><br>
+      <h3>Adicionar Celular</h3>
+      <form [formGroup]="phoneForm" (ngSubmit)="submitForm()" novalidate>
+        <div class="form-group">
+          <label>C&oacute;digo</label>
+          <input type="text" formControlName="phone_code" class="form-control" minlength="8" maxlength="8">
+        </div>
+        <div class="form-group">
+          <label>Modelo</label>
+          <input type="text" formControlName="phone_model" class="form-control" minlength="2" maxlength="255">
+        </div>
+        <div class="form-group">
+          <label>Marca</label>
+          <input type="text" formControlName="phone_brand" class="form-control" minlength="2" maxlength="255">
+        </div>
+        <div class="form-group">
+          <label>Pre&ccedil;o</label>
+          <input type="number" formControlName="phone_price" class="form-control" maxlength="20">
+        </div>
+        <div class="form-group">
+          <label>Foto (URL)</label>
+          <input type="url" formControlName="phone_photo" class="form-control" maxlength="255">
+        </div>
+        <div class="form-group">
+          <label>In&iacute;cio da venda</label>
+          <input type="date" formControlName="phone_start_date" class="form-control">
+        </div>
+        <div class="form-group">
+          <label>T&eacute;rmino da venda</label>
+          <input type="date" formControlName="phone_end_date" class="form-control">
+        </div>
+        <div class="form-group">
+          <label>Cor</label>
+          <!--<select class="form-control"
+          <option *ngFor="let color of Color"></option>-->
+          <input type="text" formControlName="phone_color" class="form-control" maxlength="20">
+        </div>
+        <button type="submit" class="btn btn-primary">Salvar</button>
+      </form>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,42 @@
+<div class="col-md-6 user-container">
+  <h1 style="margin: auto">Cell Store</h1><br>
+  <h2 style="margin: auto">Lista de Celulares</h2><br>
+  <button class="btn btn-danger" style="width:100px" (click)="addPhone()">Adicionar celular</button>
+  <br><br>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th class="invisible">Id</th>
+      <th>C&oacute;digo</th>
+      <th>Modelo</th>
+      <th>Marca</th>
+      <th>Pre&ccedil;o</th>
+      <th>Foto</th>
+      <th>In&iacute;cio da venda</th>
+      <th>T&eacute;rmino da venda</th>
+      <th>Cor</th>
+      <th></th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let phone of phoneList._embedded.phone">
+      <td class="invisible">{{phone.id}}</td>
+      <td>{{phone.code}}</td>
+      <td>{{phone.model}}</td>
+      <td>{{phone.brand}}</td>
+      <td>{{phone.price}}</td>
+      <td><img src="{{phone.photo}}"/></td>
+      <td>{{phone.startDate}}</td>
+      <td>{{phone.endDate}}</td>
+      <td>{{phone.color}}</td>
+      <td>
+        <button class="btn btn-success" (click)="deletePhone(phone)"> Remover</button>
+      </td>
+      <td>
+        <button class="btn btn-success" (click)="editPhone(phone)" style="margin-left: 20px;"> Editar</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
